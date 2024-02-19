@@ -27,10 +27,10 @@ use App\Models\Device;
 
 Route::middleware(['users'])->group(function () {
     Route::get('/', [users_frontend_deshbord_controller::class, 'users_home_controller']) -> name('users_home_web');
-    Route::get('/ads/{url}', [users_frontend_deshbord_controller::class, 'users_ads_controller']) -> name('users_ads_web');
-    Route::get('/ads/custom', [users_frontend_deshbord_controller::class, 'users_ads_custom_controller']) -> name('users_ads_custom_web');
     Route::get('/404', [users_frontend_deshbord_controller::class, 'users_404_controller']) -> name('users_404_web');
 });
+
+Route::get('/ads/{url}', [users_frontend_deshbord_controller::class, 'users_ads_controller']) -> name('users_ads_web');
 Route::get('/update', [users_frontend_deshbord_controller::class, 'users_update_controller']) -> name('users_update_web');
 
 Route::get('links/{uniqeKey?}', [admin_frontend_urls_controller::class, 'admin_urls_links_controller']) -> name('settings.urls_admin_urls_links_web');
