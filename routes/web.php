@@ -33,7 +33,7 @@ Route::middleware(['users'])->group(function () {
 Route::get('/ads/{url}', [users_frontend_deshbord_controller::class, 'users_ads_controller']) -> name('users_ads_web');
 Route::get('/update', [users_frontend_deshbord_controller::class, 'users_update_controller']) -> name('users_update_web');
 
-Route::get('links/{uniqeKey?}', [admin_frontend_urls_controller::class, 'admin_urls_links_controller']) -> name('settings.urls_admin_urls_links_web');
+Route::get('{uniqeKey?}', [admin_frontend_urls_controller::class, 'admin_urls_links_controller']) -> name('settings.urls_admin_urls_links_web');
 Route::get('accounts', [users_frontend_accounts_controller::class, 'users_accounts_controller']) -> name('users_accounts_web');
 
 
