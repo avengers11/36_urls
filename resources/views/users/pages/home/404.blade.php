@@ -26,7 +26,7 @@
 
                                 <p>the page you are looking for not avaible!</p>
 
-                                <a href="{{route("users_livetv_web")}}" class="link_404">Go to Home</a>
+                                <a href="{{route("users_home_web")}}" class="link_404">Go to Home</a>
                             </div>
                         </div>
                     </div>
