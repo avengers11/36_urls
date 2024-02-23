@@ -24,17 +24,19 @@ use App\Models\Device;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::prefix('user')->group(function () {
+    Route::middleware(['users'])->group(function () {
+        Route::get('/', [users_frontend_deshbord_controller::class, 'users_home_controller']) -> name('users_home_web');
+        Route::get('/404', [users_frontend_deshbord_controller::class, 'users_404_controller']) -> name('users_404_web');
+    });
 
-Route::middleware(['users'])->group(function () {
-    Route::get('/', [users_frontend_deshbord_controller::class, 'users_home_controller']) -> name('users_home_web');
-    Route::get('/404', [users_frontend_deshbord_controller::class, 'users_404_controller']) -> name('users_404_web');
+    Route::get('/ads/{url}', [users_frontend_deshbord_controller::class, 'users_ads_controller']) -> name('users_ads_web');
+    Route::get('/update', [users_frontend_deshbord_controller::class, 'users_update_controller']) -> name('users_update_web');
+    Route::get('accounts', [users_frontend_accounts_controller::class, 'users_accounts_controller']) -> name('users_accounts_web');
 });
 
-Route::get('/ads/{url}', [users_frontend_deshbord_controller::class, 'users_ads_controller']) -> name('users_ads_web');
-Route::get('/update', [users_frontend_deshbord_controller::class, 'users_update_controller']) -> name('users_update_web');
 
 Route::get('{uniqeKey?}', [admin_frontend_urls_controller::class, 'admin_urls_links_controller']) -> name('settings.urls_admin_urls_links_web');
-Route::get('accounts', [users_frontend_accounts_controller::class, 'users_accounts_controller']) -> name('users_accounts_web');
 
 
 // admin

@@ -37,7 +37,7 @@ class backend_admin_urls_controller extends Controller
         $db -> time = $data['time'];
         $db -> custom_page = $data['custom_page'];
         $db -> save();
-        return back() -> with('msg', 'You are successfully create a sorten url!!');
+        return redirect(route('settings.urls_admin_urls_web')) -> with('msg', 'You are successfully create a sorten url!!');
     }
 
     // admin_urls_add_custom_controller
@@ -47,7 +47,7 @@ class backend_admin_urls_controller extends Controller
         management::where("id", 1) -> update([
             'default' => $data['default_page'],
         ]);
-        return back() -> with('msg', 'You are successfully update settings!!');
+        return redirect(route('settings.urls_admin_urls_web')) -> with('msg', 'You are successfully update settings!!');
     }
 
     // admin_urls_update_urls_controller
@@ -79,7 +79,7 @@ class backend_admin_urls_controller extends Controller
             'time' => $data['time'],
             'custom_page' => $data['custom_page']
         ]);
-        return back() -> with('msg', 'You are successfully update a sorten url!!');
+        return redirect(route('settings.urls_admin_urls_web')) -> with('msg', 'You are successfully update a sorten url!!');
     }
 
     // admin_urls_delete_urls_controller
